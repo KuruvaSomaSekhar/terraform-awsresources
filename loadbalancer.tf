@@ -20,8 +20,7 @@ resource "aws_elb" "myelb" {
     interval            = 30
   }
   count = length(aws_instance.demoAPP)
-  #instances                   = [aws_instance.demoAPP[0].id, aws_instance.demoAPP[1].id, aws_instance.demoAPP[2].id]
-  instances                   = [aws_instance.demoAPP[count.index].id]
+  instances                   = [aws_instance.demoAPP[0].id, aws_instance.demoAPP[1].id, aws_instance.demoAPP[2].id]
   cross_zone_load_balancing   = true
   idle_timeout                = 400
   connection_draining         = true
